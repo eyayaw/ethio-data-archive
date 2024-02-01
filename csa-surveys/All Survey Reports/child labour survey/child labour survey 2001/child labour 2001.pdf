@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<!-- jsn_gruve_free 3.1.0 -->
+<html lang="" dir="ltr">
+<head>
+		<base href="http://www.csa.gov.et/survey-report/category/340-child-labour-survey-2001" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="Joomla! - Open Source Content Management" />
+	<title>Survey Report</title>
+	<link href="/images/csa.gif" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link rel="stylesheet" href="/media/com_phocadownload/css/main/phocadownload.css" type="text/css" />
+	<link rel="stylesheet" href="/media/com_phocadownload/css/main/rating.css" type="text/css" />
+	<link rel="stylesheet" href="/media/com_phocadownload/css/custom/default.css" type="text/css" />
+	<link rel="stylesheet" href="/media/system/css/modal.css" type="text/css" />
+	<link rel="stylesheet" href="/media/jui/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="/media/jui/css/bootstrap-responsive.min.css" type="text/css" />
+	<link rel="stylesheet" href="/media/jui/css/bootstrap-extended.css" type="text/css" />
+	<link rel="stylesheet" href="/plugins/system/jsntplframework/assets/3rd-party/bootstrap/css/bootstrap-frontend.min.css" type="text/css" />
+	<link rel="stylesheet" href="/templates/system/css/system.css" type="text/css" />
+	<link rel="stylesheet" href="/templates/system/css/general.css" type="text/css" />
+	<link rel="stylesheet" href="/templates/jsn_gruve_free/css/template.css" type="text/css" />
+	<link rel="stylesheet" href="/templates/jsn_gruve_free/css/colors/green.css" type="text/css" />
+	<link rel="stylesheet" href="/templates/jsn_gruve_free/css/styles/business.css" type="text/css" />
+	<link rel="stylesheet" href="/modules/mod_textscroller/assets/css/style.css" type="text/css" />
+	<link rel="stylesheet" href="/modules/mod_phocadownload_tree/assets/dtree.css" type="text/css" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" type="text/css" />
+	<link rel="stylesheet" href="http://www.csa.gov.et/modules/mod_gruemenu/css/styles.css" type="text/css" />
+	<style type="text/css">
+	#jsn-page,
+	#jsn-pos-topbar {
+		width: 1100px;
+		min-width: 1100px;
+	}
+	</style>
+	<script src="/media/jui/js/jquery.min.js" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery-migrate.min.js" type="text/javascript"></script>
+	<script src="/media/system/js/mootools-core.js" type="text/javascript"></script>
+	<script src="/media/system/js/core.js" type="text/javascript"></script>
+	<script src="/media/system/js/mootools-more.js" type="text/javascript"></script>
+	<script src="/media/system/js/modal.js" type="text/javascript"></script>
+	<script src="/plugins/system/jsntplframework/assets/joomlashine/js/noconflict.js" type="text/javascript"></script>
+	<script src="/plugins/system/jsntplframework/assets/joomlashine/js/utils.js" type="text/javascript"></script>
+	<script src="/templates/jsn_gruve_free/js/jsn_template.js" type="text/javascript"></script>
+	<script src="/modules/mod_textscroller/assets/js/script.js" type="text/javascript"></script>
+	<script src="/modules/mod_phocadownload_tree/assets/dtree.js" type="text/javascript"></script>
+	<script src="http://www.csa.gov.et/modules/mod_gruemenu/js/touchwipe.min.js" type="text/javascript"></script>
+	<script src="http://www.csa.gov.et/modules/mod_gruemenu/js/sidr.js" type="text/javascript"></script>
+	<script src="http://www.csa.gov.et/modules/mod_gruemenu/js/script.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		jQuery(document).ready(function(){
+			
+			jQuery("#phModalPlay").on("hidden.bs.modal", function (e) {
+				jQuery("#phModalPlay iframe").attr("src", jQuery("#phModalPlay iframe").attr("src"));
+				jQuery("audio").each(function(){this.pause();this.currentTime = 0;});
+				jQuery("video").each(function(){this.pause();this.currentTime = 0;});
+			});
+			
+			
+			jQuery(".pd-modal-button").on("click", function () {
+				var $target	= jQuery(this).data("target");
+				var $href 	= jQuery(this).data("href");
+				var $body	= $target + "Body";
+				var $dialog	= $target + "Dialog";
+				var $height	= jQuery(this).data("height");
+				var $width	= jQuery(this).data("width");
+				var $heightD= jQuery(this).data("height-dialog");
+				var $widthD	= jQuery(this).data("width-dialog");
+				var $type	= jQuery(this).data("type");
+				jQuery($body).css("height", $height);
+				jQuery($target).css("width", $width);
+				jQuery($body).css("overflow-y", "auto");
+				jQuery($dialog).css("height", $heightD);
+				jQuery($dialog).css("width", $widthD);
+				
+
+				if ($type == "image") {
+					jQuery($body).html('<img class="img-responsive" src="' + $href + '" />');
+				} else if ($type == "document") {
+					$widthD = $widthD -50;
+					$heightD = $heightD -40;
+					jQuery($body).html('<object type="application/pdf" data="' + $href + '" width="' + $widthD + '" height="' + $heightD + '" ></object>');
+				} else {
+					jQuery($body).load($href, function (response, status, xhr) {
+						if (status == "success") {
+							/*jQuery($target).modal({ show: true });*/
+						}
+					});
+				}
+			});
+		});
+		jQuery(function($) {
+			SqueezeBox.initialize({});
+			SqueezeBox.assign($('a.pd-modal-button').get(), {
+				parse: 'rel'
+			});
+		});
+
+		window.jModalClose = function () {
+			SqueezeBox.close();
+		};
+		
+		// Add extra modal close functionality for tinyMCE-based editors
+		document.onreadystatechange = function () {
+			if (document.readyState == 'interactive' && typeof tinyMCE != 'undefined' && tinyMCE)
+			{
+				if (typeof window.jModalClose_no_tinyMCE === 'undefined')
+				{	
+					window.jModalClose_no_tinyMCE = typeof(jModalClose) == 'function'  ?  jModalClose  :  false;
+					
+					jModalClose = function () {
+						if (window.jModalClose_no_tinyMCE) window.jModalClose_no_tinyMCE.apply(this, arguments);
+						tinyMCE.activeEditor.windowManager.close();
+					};
+				}
+		
+				if (typeof window.SqueezeBoxClose_no_tinyMCE === 'undefined')
+				{
+					if (typeof(SqueezeBox) == 'undefined')  SqueezeBox = {};
+					window.SqueezeBoxClose_no_tinyMCE = typeof(SqueezeBox.close) == 'function'  ?  SqueezeBox.close  :  false;
+		
+					SqueezeBox.close = function () {
+						if (window.SqueezeBoxClose_no_tinyMCE)  window.SqueezeBoxClose_no_tinyMCE.apply(this, arguments);
+						tinyMCE.activeEditor.windowManager.close();
+					};
+				}
+			}
+		};
+		
+				JSNTemplate.initTemplate({
+					templatePrefix			: "jsn_gruve_free_",
+					templatePath			: "/templates/jsn_gruve_free",
+					enableRTL				: 0,
+					enableGotopLink			: 1,
+					enableMobile			: 0,
+					enableMobileMenuSticky	: 1,
+					enableDesktopMenuSticky	: 0,
+					responsiveLayout		: [],
+					mobileMenuEffect		: ""
+				});
+			
+					window.addEvent("domready", JSNUtils.setDesktopOnMobile);
+				
+		jQuery(function($) {
+			SqueezeBox.initialize({});
+			SqueezeBox.assign($('a.modal').get(), {
+				parse: 'rel'
+			});
+		});
+
+		window.jModalClose = function () {
+			SqueezeBox.close();
+		};
+		
+		// Add extra modal close functionality for tinyMCE-based editors
+		document.onreadystatechange = function () {
+			if (document.readyState == 'interactive' && typeof tinyMCE != 'undefined' && tinyMCE)
+			{
+				if (typeof window.jModalClose_no_tinyMCE === 'undefined')
+				{	
+					window.jModalClose_no_tinyMCE = typeof(jModalClose) == 'function'  ?  jModalClose  :  false;
+					
+					jModalClose = function () {
+						if (window.jModalClose_no_tinyMCE) window.jModalClose_no_tinyMCE.apply(this, arguments);
+						tinyMCE.activeEditor.windowManager.close();
+					};
+				}
+		
+				if (typeof window.SqueezeBoxClose_no_tinyMCE === 'undefined')
+				{
+					if (typeof(SqueezeBox) == 'undefined')  SqueezeBox = {};
+					window.SqueezeBoxClose_no_tinyMCE = typeof(SqueezeBox.close) == 'function'  ?  SqueezeBox.close  :  false;
+		
+					SqueezeBox.close = function () {
+						if (window.SqueezeBoxClose_no_tinyMCE)  window.SqueezeBoxClose_no_tinyMCE.apply(this, arguments);
+						tinyMCE.activeEditor.windowManager.close();
+					};
+				}
+			}
+		};
+		
+	window.addEvent('domready', function() {
+		TextScroller(Array(95, 1, 20, 0, 500, 1));
+	});
+
+jQuery(document).ready(function($) {
+		$('.navigation-toggle-161').sidr( {
+			name     : 'sidr-main',
+			source   : '#sidr-close, #gruemenu',
+			side     : 'left',
+			displace : false
+		} );
+		$('.sidr-class-toggle-sidr-close').click( function() {
+			$.sidr( 'close', 'sidr-main' );
+			return false;
+		} );
+});
+
+      jQuery(window).touchwipe({
+        wipeLeft: function($) {
+          // Close
+          $.sidr('close', 'sidr-main');
+        },
+        wipeRight: function($) {
+          // Open
+          $.sidr('open', 'sidr-main');
+        },
+        preventDefaultEvents: false
+      });
+
+	</script>
+	<script type="text/javascript" src="http://www.csa.gov.et/components/com_phocadownload/assets/overlib/overlib_mini.js"></script>
+	<style type="text/css"> 
+ #sbox-window.phocadownloadplaywindow   {background-color:#fff;padding:2px} 
+ #sbox-overlay.phocadownloadplayoverlay  {background-color:#000;} 
+ </style>
+	<style type="text/css"> 
+ #sbox-window.phocadownloadpreviewwindow   {background-color:#fff;padding:2px} 
+ #sbox-overlay.phocadownloadpreviewoverlay  {background-color:#000;} 
+ </style>
+	<script src='/plugins/system/jsvisit_counter/js/jsvisit_agent.min.js' type='text/javascript'></script>
+	<script type='text/javascript'>jQuery(document).ready(function() { jsvisitCountVisitors(120); }); </script>
+	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js" type="text/javascript"></script><![endif]-->
+
+</head>
+<body id="jsn-master" class="jsn-textstyle-business jsn-color-green jsn-direction-ltr jsn-desktop jsn-joomla-30  jsn-com-phocadownload jsn-view-category jsn-itemid-105">
+		<div id="jsn-page" class="container">
+			<div id="jsn-header">
+			<div id="jsn-logo" class="pull-left">
+			<a href="/index.php" title=""><img src="/images/images/csalogo.jpg" alt="" id="jsn-logo-desktop" /></a>			</div>
+			<div id="jsn-headerright" class="pull-right">
+						</div>
+			<div class="clearbreak"></div>
+		</div>
+		<div id="jsn-body">
+					<div id="jsn-menu">
+							<div id="jsn-pos-mainmenu">
+					<div class=" jsn-modulecontainer"><div class="jsn-modulecontainer_inner"><div class="jsn-modulecontent">
+<style>
+
+/* Top-to-Bottom */
+#gruemenu.grue_161 ul li { margin:0!important; padding:0!important }
+#gruemenu.grue_161 > ul > li {float: left; display: inline-block; }
+#gruemenu.grue_161 > ul > li.has-sub > a::after {border-top-color: #D1E3FB;  right: 17px; top: 50%; margin-top:-5px; }
+#gruemenu.grue_161 > ul > li.has-sub.active > a::after,
+#gruemenu.grue_161 > ul > li.has-sub:hover > a {border-top-color: #FFFFFF;}
+#gruemenu.grue_161 ul ul { position: absolute; left: -9999px; top: auto; padding-top: 6px;}
+#gruemenu.grue_161 > ul > li > ul::after { content: ""; position: absolute; width: 0; height: 0; border: 5px solid transparent; top: -3px; left: 20px;}
+#gruemenu.grue_161 ul ul ul::after {content: "";position: absolute; width: 0; height: 0; border: 5px solid transparent;  top: 11px; left: -3px;}
+#gruemenu.grue_161 > ul > li:hover > ul {top: auto;left: 0;}
+#gruemenu.grue_161 ul ul ul {padding-top: 0;padding-left: 6px;}
+#gruemenu.grue_161 ul ul > li:hover > ul {left: 220px;top: 0;}
+#gruemenu.grue_161 > ul > li > ul::after { border-bottom-color: #192F4D}
+#gruemenu.grue_161 ul ul ul::after {border-right-color:  #192F4D }
+#gruemenu.grue_161 ul ul li.has-sub > a::after {border-left-color: #D1E3FB;   right: 17px; top: 14px; }
+#gruemenu.grue_161 ul ul li.has-sub.active > a::after,
+#gruemenu.grue_161 ul ul li.has-sub:hover > a::after {border-left-color:#FFFFFF; }
+#gruemenu.grue_161 { background: #105E99; }
+#gruemenu.grue_161 ul li a, #gruemenu.grue_161 
+#gruemenu.grue_161 {font-family: "Open Sans", Arial, Helvetica, sans-serif ;}
+#gruemenu.grue_161,
+#gruemenu.grue_161 ul,
+#gruemenu.grue_161 ul li,
+#gruemenu.grue_161 ul > li > a { font-size:10.133px}
+#gruemenu.grue_161 ul > li > ul > li > a { font-size:10px!important}
+#gruemenu.grue_161 > ul > li > a { color: #D1E3FB; text-transform:uppercase}
+#gruemenu.grue_161 > ul > li:hover > a,
+#gruemenu.grue_161 > ul > li > a:hover,
+#gruemenu.grue_161 > ul > li.active > a {color: #FFFFFF; background: #11243D;}
+#gruemenu.grue_161 ul ul li:hover > a,
+#gruemenu.grue_161 ul ul li.active > a {color: #FFFFFF; background: #11243D;}
+#gruemenu.grue_161 ul ul li a, #navigation-toggle {color: #D1E3FB; background: #192F4D;}
+#gruemenu.grue_161 ul ul li:hover > a,
+#gruemenu.grue_161 ul ul li.active > a,
+#navigation-toggle:hover {color: #FFFFFF;background:#11243D;}
+#gruemenu.grue_161 #menu-button{ color: #D1E3FB; }
+#gruemenu.grue_161 {-webkit-border-radius: 0px; -moz-border-radius: 0px; -o-border-radius: 0px; border-radius: 0px;  border-radius: 0px;}
+#gruemenu.grue_161 ul li:first-child > a  { border-top-left-radius: 0px; border-bottom-left-radius: 0px;}
+#gruemenu.grue_161 ul ul li:first-child > a { border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: px;}
+#gruemenu.grue_161 ul ul li:last-child > a {border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
+#gruemenu.grue_161 #menu-button::after {border-top: 2px solid #D1E3FB; border-bottom: 2px solid #D1E3FB; }
+#gruemenu.grue_161 #menu-button::before {border-top: 2px solid #D1E3FB; }
+/* Enable Fixed Menu */
+	#gruemenu.grue_161.gruefixed { position:fixed; top:0; left:0; width:100%; z-index:9999999}
+</style>
+
+<div id="gruemenu" class="grue_161 ">
+<ul >
+<li class="item-101"><a href="/" >Home</a></li><li class="item-102"><a href="/about-us" >About Us</a></li><li class="item-103 has-sub parent"><a href="/" >Organization</a><ul class="sub-menu"><li class="item-114"><a href="/" >Organization Structure</a></li><li class="item-115"><a href="/" >Branch Offices</a></li><li class="item-116"><a href="/" >Directorates</a></li></ul></li><li class="item-104 has-sub parent"><a href="/" >Repository</a><ul class="sub-menu"><li class="item-118"><a href="http://www.countrystat.org/home.aspx?c=ETH" target="_blank" >Country Stat</a></li><li class="item-119"><a href="http:/redatam/index.html" target="_blank" >IMIS</a></li><li class="item-120"><a href="http://www.dataforalldemo.org/dashboard/v1/ethioinfo/ethioinfo#/" target="_blank" >EhioInfo</a></li></ul></li><li class="item-109 has-sub parent"><a href="/" >Census </a><ul class="sub-menu"><li class="item-110 has-sub parent"><a href="/" >Complete Report</a><ul class="sub-menu"><li class="item-112"><a href="/census-report/complete-report/census-2007" >Census 2007</a></li><li class="item-113"><a href="/census-report/complete-report/census-1994" >Census 1994</a></li><li class="item-200"><a href="/census-report/complete-report/census-1984" >census 1984</a></li></ul></li><li class="item-111"><a href="/census-report/census-tables" >Census Tables</a></li><li class="item-211"><a href="/census-report/population-projections" >Population Projections</a></li></ul></li><li class="item-105 current active"><a href="/survey-report" >Survey Report</a></li><li class="item-107"><a href="/monthly-retail-price" >Retail Price</a></li><li class="item-106"><a href="/atlas" >ATLAS</a></li><li class="item-108 has-sub parent"><a href="/" >Price Index</a><ul class="sub-menu"><li class="item-146"><a href="/price-indices/consumer-price-index" >Consumer Price Index</a></li><li class="item-147"><a href="/price-indices/ag-producer-price-index" >Ag-Producer Price Index</a></li></ul></li></ul>
+</div>
+
+<script type="text/javascript">
+  var el = document.getElementById('TheGrue');
+  if(el) {el.style.display += el.style.display = 'none';}
+</script>
+
+
+
+
+<div class="clearbreak"></div></div></div></div>
+				</div>
+			            <div class="clearbreak"></div>
+			</div>
+					<div id="jsn-content" class="jsn-hasleft jsn-hasright ">
+				<div id="jsn-content_inner"  class="row-fluid">
+							<div id="jsn-maincontent" class="span6 order2 offset3 row-fluid">
+					<div id="jsn-maincontent_inner">
+						<div id="jsn-centercol"><div id="jsn-centercol_inner">
+									<div id="jsn-mainbody-content" class=" jsn-hasmainbody">
+								<div id="jsn-mainbody-content-inner1"><div id="jsn-mainbody-content-inner2"><div id="jsn-mainbody-content-inner3"><div id="jsn-mainbody-content-inner4" class="row-fluid">
+
+							
+								<div id="jsn-mainbody-content-inner" class="span12 order1 ">
+
+										<div id="jsn-mainbody">
+										<div id="system-message-container">
+			<div id="system-message">
+							<div class="alert alert-message">
+										<a class="close" data-dismiss="alert">×</a>
+
+											<h4 class="alert-heading">Message</h4>
+						<div>
+															<div class="alert-message">Error while downloading file File not found on server</div>
+													</div>
+									</div>
+					</div>
+	</div>
+
+										<div id="phoca-dl-category-box" class="pd-category-view"><div class="pd-category"><div class="pdtop"><a title="child labour survey" href="/survey-report/category/339-child-labour-survey" ><img src="/media/com_phocadownload/images/up.png" alt="Up" /></a></div><h3 class="pd-ctitle">child labour survey 2001</h3><div class="pd-filebox"><div class="pd-filenamebox"><div class="pd-title">child labour survey</div><div class="pd-filename"><div class="pd-document16" style="background: url('http://www.csa.gov.et/media/com_phocadownload/images/mime/16/icon-pdf.png') 0 center no-repeat;"><div class="pd-float"><a class="" href="/survey-report/category/340-child-labour-survey-2001?download=744:child-labour-survey" >CLS_2001_Metadata.pdf</a></div></div></div></div>
+<div class="pd-buttons"><div class="pd-button-download"><a class="btn btn-success" href="/survey-report/category/340-child-labour-survey-2001?download=744:child-labour-survey" >Download</a></div></div><div class="pd-buttons"><div class="pd-button-details"><a class="btn btn-info" 
+
+onmouseover="return overlib('&lt;div style=\'text-align:left;padding:5px\'&gt;&lt;div class=\'pd-title\'&gt;child labour survey&lt;/div&gt;&lt;div class=\'pd-filesize-txt\'&gt;File Size:&lt;/div&gt;&lt;div class=\'pd-fl-m\'&gt;895.40 kB&lt;/div&gt;&lt;div class=\'pd-date-txt\'&gt;Date:&lt;/div&gt;&lt;div class=\'pd-fl-m\'&gt;22 February 2017&lt;/div&gt;&lt;div class=\'pd-downloads-txt\'&gt;Downloads:&lt;/div&gt;&lt;div class=\'pd-fl-m\'&gt;2095 x&lt;/div&gt;&lt;/div&gt;', CAPTION, 'Details', BELOW, RIGHT, CSSCLASS, TEXTFONTCLASS, 'fontPhocaPDClass', FGCLASS, 'fgPhocaPDClass', BGCLASS, 'bgPhocaPDClass', CAPTIONFONTCLASS,'capfontPhocaPDClass', CLOSEFONTCLASS, 'capfontclosePhocaPDClass', STICKY, MOUSEOFF, CLOSETEXT, 'Close');" onmouseout="return nd();"
+ href="#">Details</a></div></div><div class="pd-cb"></div></div><div class="pd-filebox"><div class="pd-filenamebox"><div class="pd-title">child labour survey</div><div class="pd-filename"><div class="pd-document16" style="background: url('http://www.csa.gov.et/media/com_phocadownload/images/mime/16/icon-pdf.png') 0 center no-repeat;"><div class="pd-float"><a class="" href="/survey-report/category/340-child-labour-survey-2001?download=745:child-labour-survey" >child labour 2001.pdf</a></div></div></div></div>
+<div class="pd-buttons"><div class="pd-button-download"><a class="btn btn-success" href="/survey-report/category/340-child-labour-survey-2001?download=745:child-labour-survey" >Download</a></div></div><div class="pd-buttons"><div class="pd-button-details"><a class="btn btn-info" 
+
+onmouseover="return overlib('&lt;div style=\'text-align:left;padding:5px\'&gt;&lt;div class=\'pd-title\'&gt;child labour survey&lt;/div&gt;&lt;div class=\'pd-date-txt\'&gt;Date:&lt;/div&gt;&lt;div class=\'pd-fl-m\'&gt;22 February 2017&lt;/div&gt;&lt;div class=\'pd-downloads-txt\'&gt;Downloads:&lt;/div&gt;&lt;div class=\'pd-fl-m\'&gt;0 x&lt;/div&gt;&lt;/div&gt;', CAPTION, 'Details', BELOW, RIGHT, CSSCLASS, TEXTFONTCLASS, 'fontPhocaPDClass', FGCLASS, 'fgPhocaPDClass', BGCLASS, 'bgPhocaPDClass', CAPTIONFONTCLASS,'capfontPhocaPDClass', CLOSEFONTCLASS, 'capfontclosePhocaPDClass', STICKY, MOUSEOFF, CLOSETEXT, 'Close');" onmouseout="return nd();"
+ href="#">Details</a></div></div><div class="pd-cb"></div></div><form action="http://www.csa.gov.et/survey-report/category/340-child-labour-survey-2001" method="post" name="adminForm">
+<div class="pd-cb">&nbsp;</div><div class="pgcenter"><div class="pagination"><div class="pginline">Display Num&nbsp;<select id="limit" name="limit" class="inputbox input-mini" size="1" onchange="this.form.submit()">
+	<option value="5" selected="selected">5</option>
+	<option value="10">10</option>
+	<option value="15">15</option>
+	<option value="20">20</option>
+	<option value="50">50</option>
+	<option value="0">All</option>
+</select>
+ &nbsp;</div><div style="margin:0 10px 0 10px;display:inline;" class="sectiontablefooter" id="pg-pagination" ></div></div></div>
+<input type="hidden" name="a51c68a1ed5c3d5f57d0e1360a7ef1e7" value="1" /></form></div></div><div class="pd-cb">&nbsp;</div><div ></div>
+									</div>
+		
+							</div>
+
+				        
+							</div></div></div></div></div>
+
+
+		        				</div></div> <!-- end centercol -->
+				</div></div><!-- end jsn-maincontent -->
+							<div id="jsn-leftsidecontent" class="span3 order1 offset-9">
+						<div id="jsn-leftsidecontent_inner">
+							<div id="jsn-pos-left">
+								<div class=" jsn-modulecontainer"><div class="jsn-modulecontainer_inner"><div class="jsn-modulecontent"><div id ="phocadownload-module">
+<center><div style="text-align:left;"><div class="dtree"><script type="text/javascript">
+<!--
+
+dtree_6456cc8516c3f = new dTree2568('dtree_6456cc8516c3f', '/modules/mod_phocadownload_tree/assets/');
+
+dtree_6456cc8516c3f.add(0,-1,' Categories','');
+dtree_6456cc8516c3f.add(14,0,'All Survey Reports','/survey-report/category/14-all-survey-reports');
+dtree_6456cc8516c3f.add(58,14,' Meher(Main Season) Agricultural Sample survey','/survey-report/category/58-meher-main-season-agricultural-sample-survey');
+dtree_6456cc8516c3f.add(110,58,'ETH-AgSS-1995','/survey-report/category/110-eth-agss-1995');
+dtree_6456cc8516c3f.add(111,58,'ETH-AgSS-1996','/survey-report/category/111-eth-agss-1996');
+dtree_6456cc8516c3f.add(112,58,'ETH-AgSS-1997','/survey-report/category/112-eth-agss-1997');
+dtree_6456cc8516c3f.add(113,58,'ETH-AgSS-1998','/survey-report/category/113-eth-agss-1998');
+dtree_6456cc8516c3f.add(114,58,'ETH-AgSS-1999','/survey-report/category/114-eth-agss-1999');
+dtree_6456cc8516c3f.add(115,58,'ETH-AgSS-2000','/survey-report/category/115-eth-agss-2000');
+dtree_6456cc8516c3f.add(116,58,'ETH-AgSS-2001','/survey-report/category/116-eth-agss-2001');
+dtree_6456cc8516c3f.add(117,58,'ETH-AgSS-2002','/survey-report/category/117-eth-agss-2002');
+dtree_6456cc8516c3f.add(118,58,'ETH-AgSS-2003','/survey-report/category/118-eth-agss-2003');
+dtree_6456cc8516c3f.add(119,58,'ETH-AgSS-2004','/survey-report/category/119-eth-agss-2004');
+dtree_6456cc8516c3f.add(121,58,'ETH-AgSS-2005','/survey-report/category/121-eth-agss-2005');
+dtree_6456cc8516c3f.add(122,58,'ETH-AgSS-2006','/survey-report/category/122-eth-agss-2006');
+dtree_6456cc8516c3f.add(123,58,'ETH-AgSS-2007','/survey-report/category/123-eth-agss-2007');
+dtree_6456cc8516c3f.add(125,58,'ETH-AgSS-2008','/survey-report/category/125-eth-agss-2008');
+dtree_6456cc8516c3f.add(126,58,'ETH-AgSS-2009','/survey-report/category/126-eth-agss-2009');
+dtree_6456cc8516c3f.add(127,58,'ETH-AgSS-2010','/survey-report/category/127-eth-agss-2010');
+dtree_6456cc8516c3f.add(128,58,'ETH-AgSS-2011','/survey-report/category/128-eth-agss-2011');
+dtree_6456cc8516c3f.add(129,58,'ETH-AgSS-2012','/survey-report/category/129-eth-agss-2012');
+dtree_6456cc8516c3f.add(130,58,'ETH-AgSS-2013','/survey-report/category/130-eth-agss-2013');
+dtree_6456cc8516c3f.add(346,58,'ETH-AgSS-2014','/survey-report/category/346-eth-agss-2014');
+dtree_6456cc8516c3f.add(131,58,'ETH-AgSS-2015','/survey-report/category/131-eth-agss-2015');
+dtree_6456cc8516c3f.add(347,58,'ETH-AgSS-2016','/survey-report/category/347-eth-agss-2016');
+dtree_6456cc8516c3f.add(359,58,'ETH-AgSS-2017','/survey-report/category/359-eth-agss-2017');
+dtree_6456cc8516c3f.add(373,58,'ETH-AgSS-2018','/survey-report/category/373-eth-agss-2018');
+dtree_6456cc8516c3f.add(59,14,'Agricultural Sample survey Belg','/survey-report/category/59-agricultural-sample-survey-belg');
+dtree_6456cc8516c3f.add(133,59,'ETH-AgSS-1995','/survey-report/category/133-eth-agss-1995');
+dtree_6456cc8516c3f.add(134,59,'ETH-AgSS-1996','/survey-report/category/134-eth-agss-1996');
+dtree_6456cc8516c3f.add(135,59,'ETH-AgSS-1997','/survey-report/category/135-eth-agss-1997');
+dtree_6456cc8516c3f.add(136,59,'ETH-AgSS-1997','/survey-report/category/136-eth-agss-1997');
+dtree_6456cc8516c3f.add(137,59,'ETH-AgSS-1998','/survey-report/category/137-eth-agss-1998');
+dtree_6456cc8516c3f.add(138,59,'ETH-AgSS-1999','/survey-report/category/138-eth-agss-1999');
+dtree_6456cc8516c3f.add(139,59,'ETH-AgSS-2000','/survey-report/category/139-eth-agss-2000');
+dtree_6456cc8516c3f.add(140,59,'ETH-AgSS-2001','/survey-report/category/140-eth-agss-2001');
+dtree_6456cc8516c3f.add(141,59,'ETH-AgSS-2002','/survey-report/category/141-eth-agss-2002');
+dtree_6456cc8516c3f.add(142,59,'ETH-AgSS-2003','/survey-report/category/142-eth-agss-2003');
+dtree_6456cc8516c3f.add(143,59,'ETH-AgSS-2004','/survey-report/category/143-eth-agss-2004');
+dtree_6456cc8516c3f.add(144,59,'ETH-AgSS-2005','/survey-report/category/144-eth-agss-2005');
+dtree_6456cc8516c3f.add(145,59,'ETH-AgSS-2006','/survey-report/category/145-eth-agss-2006');
+dtree_6456cc8516c3f.add(146,59,'ETH-AgSS-2007','/survey-report/category/146-eth-agss-2007');
+dtree_6456cc8516c3f.add(147,59,'ETH-AgSS-2008','/survey-report/category/147-eth-agss-2008');
+dtree_6456cc8516c3f.add(148,59,'ETH-AgSS-2009','/survey-report/category/148-eth-agss-2009');
+dtree_6456cc8516c3f.add(149,59,'ETH-AgSS-2010','/survey-report/category/149-eth-agss-2010');
+dtree_6456cc8516c3f.add(150,59,'ETH-AgSS-2011','/survey-report/category/150-eth-agss-2011');
+dtree_6456cc8516c3f.add(151,59,'ETH-AgSS-2012','/survey-report/category/151-eth-agss-2012');
+dtree_6456cc8516c3f.add(152,59,'ETH-AgSS-2013','/survey-report/category/152-eth-agss-2013');
+dtree_6456cc8516c3f.add(153,59,'ETH-AgSS-2014','/survey-report/category/153-eth-agss-2014');
+dtree_6456cc8516c3f.add(154,59,'ETH-AgSS-2015','/survey-report/category/154-eth-agss-2015');
+dtree_6456cc8516c3f.add(60,14,'Forecast Agricultural Sample survey','/survey-report/category/60-forecast-agricultural-sample-survey');
+dtree_6456cc8516c3f.add(177,60,'ETH-AgSS-1995','/survey-report/category/177-eth-agss-1995');
+dtree_6456cc8516c3f.add(178,60,'ETH-AgSS-1996','/survey-report/category/178-eth-agss-1996');
+dtree_6456cc8516c3f.add(179,60,'ETH-AgSS-1997','/survey-report/category/179-eth-agss-1997');
+dtree_6456cc8516c3f.add(180,60,'ETH-AgSS-1998','/survey-report/category/180-eth-agss-1998');
+dtree_6456cc8516c3f.add(181,60,'ETH-AgSS-1998','/survey-report/category/181-eth-agss-1998');
+dtree_6456cc8516c3f.add(182,60,'ETH-AgSS-1999','/survey-report/category/182-eth-agss-1999');
+dtree_6456cc8516c3f.add(183,60,'ETH-AgSS-2000','/survey-report/category/183-eth-agss-2000');
+dtree_6456cc8516c3f.add(185,60,'ETH-AgSS-2001','/survey-report/category/185-eth-agss-2001');
+dtree_6456cc8516c3f.add(186,60,'ETH-AgSS-2002','/survey-report/category/186-eth-agss-2002');
+dtree_6456cc8516c3f.add(187,60,'ETH-AgSS-2002','/survey-report/category/187-eth-agss-2002');
+dtree_6456cc8516c3f.add(190,60,'ETH-AgSS-2003','/survey-report/category/190-eth-agss-2003');
+dtree_6456cc8516c3f.add(191,60,'ETH-AgSS-2004','/survey-report/category/191-eth-agss-2004');
+dtree_6456cc8516c3f.add(192,60,'ETH-AgSS-2005','/survey-report/category/192-eth-agss-2005');
+dtree_6456cc8516c3f.add(193,60,'ETH-AgSS-2006','/survey-report/category/193-eth-agss-2006');
+dtree_6456cc8516c3f.add(194,60,'ETH-AgSS-2007','/survey-report/category/194-eth-agss-2007');
+dtree_6456cc8516c3f.add(195,60,'ETH-AgSS-2008','/survey-report/category/195-eth-agss-2008');
+dtree_6456cc8516c3f.add(196,60,'ETH-AgSS-2009','/survey-report/category/196-eth-agss-2009');
+dtree_6456cc8516c3f.add(197,60,'ETH-AgSS-2009','/survey-report/category/197-eth-agss-2009');
+dtree_6456cc8516c3f.add(198,60,'ETH-AgSS-2010','/survey-report/category/198-eth-agss-2010');
+dtree_6456cc8516c3f.add(199,60,'ETH-AgSS-2011','/survey-report/category/199-eth-agss-2011');
+dtree_6456cc8516c3f.add(200,60,'ETH-AgSS-2012','/survey-report/category/200-eth-agss-2012');
+dtree_6456cc8516c3f.add(201,60,'ETH-AgSS-2013','/survey-report/category/201-eth-agss-2013');
+dtree_6456cc8516c3f.add(202,60,'ETH-AgSS-2014','/survey-report/category/202-eth-agss-2014');
+dtree_6456cc8516c3f.add(203,60,'ETH-AgSS-2015','/survey-report/category/203-eth-agss-2015');
+dtree_6456cc8516c3f.add(374,60,'ET_AGSS_2020','/survey-report/category/374-et-agss-2020');
+dtree_6456cc8516c3f.add(61,14,'Livestock Agricultural Sample survey','/survey-report/category/61-livestock-agricultural-sample-survey');
+dtree_6456cc8516c3f.add(155,61,'ETH-AgSS-1995','/survey-report/category/155-eth-agss-1995');
+dtree_6456cc8516c3f.add(156,61,'ETH-AgSS-1996','/survey-report/category/156-eth-agss-1996');
+dtree_6456cc8516c3f.add(157,61,'ETH-AgSS-1997','/survey-report/category/157-eth-agss-1997');
+dtree_6456cc8516c3f.add(158,61,'ETH-AgSS-1998','/survey-report/category/158-eth-agss-1998');
+dtree_6456cc8516c3f.add(159,61,'ETH-AgSS-1998','/survey-report/category/159-eth-agss-1998');
+dtree_6456cc8516c3f.add(160,61,'ETH-AgSS-1999','/survey-report/category/160-eth-agss-1999');
+dtree_6456cc8516c3f.add(161,61,'ETH-AgSS-2000','/survey-report/category/161-eth-agss-2000');
+dtree_6456cc8516c3f.add(162,61,'ETH-AgSS-2001','/survey-report/category/162-eth-agss-2001');
+dtree_6456cc8516c3f.add(163,61,'ETH-AgSS-2002','/survey-report/category/163-eth-agss-2002');
+dtree_6456cc8516c3f.add(164,61,'ETH-AgSS-2003','/survey-report/category/164-eth-agss-2003');
+dtree_6456cc8516c3f.add(165,61,'ETH-AgSS-2004','/survey-report/category/165-eth-agss-2004');
+dtree_6456cc8516c3f.add(166,61,'ETH-AgSS-2005','/survey-report/category/166-eth-agss-2005');
+dtree_6456cc8516c3f.add(167,61,'ETH-AgSS-2006','/survey-report/category/167-eth-agss-2006');
+dtree_6456cc8516c3f.add(168,61,'ETH-AgSS-2006','/survey-report/category/168-eth-agss-2006');
+dtree_6456cc8516c3f.add(169,61,'ETH-AgSS-2007','/survey-report/category/169-eth-agss-2007');
+dtree_6456cc8516c3f.add(170,61,'ETH-AgSS-2008','/survey-report/category/170-eth-agss-2008');
+dtree_6456cc8516c3f.add(171,61,'ETH-AgSS-2010','/survey-report/category/171-eth-agss-2010');
+dtree_6456cc8516c3f.add(172,61,'ETH-AgSS-2011','/survey-report/category/172-eth-agss-2011');
+dtree_6456cc8516c3f.add(173,61,'ETH-AgSS-2012','/survey-report/category/173-eth-agss-2012');
+dtree_6456cc8516c3f.add(174,61,'ETH-AgSS-2013','/survey-report/category/174-eth-agss-2013');
+dtree_6456cc8516c3f.add(175,61,'ETH-AgSS-2014','/survey-report/category/175-eth-agss-2014');
+dtree_6456cc8516c3f.add(176,61,'ETH-AgSS-2015','/survey-report/category/176-eth-agss-2015');
+dtree_6456cc8516c3f.add(348,61,'ETH-AgSS-2016','/survey-report/category/348-eth-agss-2016');
+dtree_6456cc8516c3f.add(358,61,'ETH-AgSS-2017','/survey-report/category/358-eth-agss-2017');
+dtree_6456cc8516c3f.add(370,61,'ETH-AgSS-2018','/survey-report/category/370-eth-agss-2018');
+dtree_6456cc8516c3f.add(1,14,'National Labour Force Survey','/survey-report/category/1-national-labour-force-survey');
+dtree_6456cc8516c3f.add(32,1,'NLFS 1999','/survey-report/category/32-nlfs-1999');
+dtree_6456cc8516c3f.add(33,1,'NLFS 2005','/survey-report/category/33-nlfs-2005');
+dtree_6456cc8516c3f.add(34,1,'NLFS 2013','/survey-report/category/34-nlfs-2013');
+dtree_6456cc8516c3f.add(351,1,'CNLFS 2015','/survey-report/category/351-cnlfs-2015');
+dtree_6456cc8516c3f.add(2,14,'Demographic and health survey','/survey-report/category/2-demographic-and-health-survey');
+dtree_6456cc8516c3f.add(35,2,'DHS 2000','/survey-report/category/35-dhs-2000');
+dtree_6456cc8516c3f.add(36,2,'DHS 2005','/survey-report/category/36-dhs-2005');
+dtree_6456cc8516c3f.add(37,2,'DHS 2011','/survey-report/category/37-dhs-2011');
+dtree_6456cc8516c3f.add(352,2,'DHS 2016','/survey-report/category/352-dhs-2016');
+dtree_6456cc8516c3f.add(4,14,'Distributive and Service Trade Survey','/survey-report/category/4-distributive-and-service-trade-survey');
+dtree_6456cc8516c3f.add(67,4,'DST2003','/survey-report/category/67-dst2003');
+dtree_6456cc8516c3f.add(69,4,'DST2009','/survey-report/category/69-dst2009');
+dtree_6456cc8516c3f.add(70,4,'DST2011','/survey-report/category/70-dst2011');
+dtree_6456cc8516c3f.add(71,4,'DST2014','/survey-report/category/71-dst2014');
+dtree_6456cc8516c3f.add(6,14,'Family and Fertility Survey','/survey-report/category/6-family-and-fertility-survey');
+dtree_6456cc8516c3f.add(328,6,'Family_fertility_report_1993','/survey-report/category/328-family-fertility-report-1993');
+dtree_6456cc8516c3f.add(7,14,'Household Income Consumption and Expenditure Survey','/survey-report');
+dtree_6456cc8516c3f.add(72,7,'HICE 1995','/survey-report/category/72-hice-1995');
+dtree_6456cc8516c3f.add(73,7,'HICE 2000','/survey-report/category/73-hice-2000');
+dtree_6456cc8516c3f.add(75,7,'HICE 2011','/survey-report/category/75-hice-2011');
+dtree_6456cc8516c3f.add(76,7,'HICE 2004','/survey-report/category/76-hice-2004');
+dtree_6456cc8516c3f.add(350,7,'HICE 2016','/survey-report/category/350-hice-2016');
+dtree_6456cc8516c3f.add(357,350,'poverty Analysis','/survey-report/category/357-poverty-analysis');
+dtree_6456cc8516c3f.add(8,14,'Monthly Retail Price ','/monthly-retail-price');
+dtree_6456cc8516c3f.add(9,8,'MRP 2011','/survey-report/category/9-mrp-2011');
+dtree_6456cc8516c3f.add(10,8,'MRP 2012','/survey-report/category/10-mrp-2012');
+dtree_6456cc8516c3f.add(11,8,'MRP 2013','/survey-report/category/11-mrp-2013');
+dtree_6456cc8516c3f.add(12,8,'MRP 2014','/survey-report/category/12-mrp-2014');
+dtree_6456cc8516c3f.add(13,8,'MRP 2015','/survey-report/category/13-mrp-2015');
+dtree_6456cc8516c3f.add(106,8,'MRP 2016','/survey-report/category/106-all-survey-reports-monthly-retail-price-mrp-2016');
+dtree_6456cc8516c3f.add(15,14,'Health and Nutrition Survey','/survey-report/category/15-health-and-nutrition-survey');
+dtree_6456cc8516c3f.add(77,15,'HNS 1998','/survey-report/category/77-hns-1998');
+dtree_6456cc8516c3f.add(16,14,'Informal Sector Survey','/survey-report/category/16-informal-sector-survey');
+dtree_6456cc8516c3f.add(329,16,'ISS 2003','/survey-report/category/329-iss-2003');
+dtree_6456cc8516c3f.add(17,14,'Large and Medium Manufacturing Industry Survey','/survey-report/category/17-large-and-medium-manufacturing-industry-survey');
+dtree_6456cc8516c3f.add(38,17,'LMMIS1996','/survey-report/category/38-lmmis1996');
+dtree_6456cc8516c3f.add(39,17,'LMMIS1997','/survey-report/category/39-lmmis1997');
+dtree_6456cc8516c3f.add(40,17,'LMMIS1998','/survey-report/category/40-lmmis1998');
+dtree_6456cc8516c3f.add(41,17,'LMMIS1999','/survey-report/category/41-lmmis1999');
+dtree_6456cc8516c3f.add(42,17,'LMMIS 2000','/survey-report/category/42-lmmis-2000');
+dtree_6456cc8516c3f.add(43,17,'LMMIS 2001','/survey-report/category/43-lmmis-2001');
+dtree_6456cc8516c3f.add(44,17,'LMMIS 2002','/survey-report/category/44-lmmis-2002');
+dtree_6456cc8516c3f.add(45,17,'LMMIS 2003','/survey-report/category/45-lmmis-2003');
+dtree_6456cc8516c3f.add(46,17,'LMMIS 2004','/survey-report/category/46-lmmis-2004');
+dtree_6456cc8516c3f.add(47,17,'LMMIS 2005','/survey-report/category/47-lmmis-2005');
+dtree_6456cc8516c3f.add(48,17,'LMMIS 2006','/survey-report/category/48-lmmis-2006');
+dtree_6456cc8516c3f.add(49,17,'LMMIS 2007','/survey-report/category/49-lmmis-2007');
+dtree_6456cc8516c3f.add(50,17,'LMMIS 2008','/survey-report/category/50-lmmis-2008');
+dtree_6456cc8516c3f.add(51,17,'LMMIS 2009','/survey-report/category/51-lmmis-2009');
+dtree_6456cc8516c3f.add(52,17,'LMMIS 2010','/survey-report/category/52-lmmis-2010');
+dtree_6456cc8516c3f.add(53,17,'LMMIS 2011','/survey-report/category/53-lmmis-2011');
+dtree_6456cc8516c3f.add(54,17,'LMMIS 2012','/survey-report/category/54-lmmis-2012');
+dtree_6456cc8516c3f.add(55,17,'LMMIS 2013','/survey-report/category/55-lmmis-2013');
+dtree_6456cc8516c3f.add(56,17,'LMMIS 2014','/survey-report/category/56-lmmis-2014');
+dtree_6456cc8516c3f.add(57,17,'LMMIS 2015','/survey-report/category/57-lmmis-2015');
+dtree_6456cc8516c3f.add(365,17,'LMMIS 2016','/survey-report/category/365-lmmis-2016');
+dtree_6456cc8516c3f.add(366,17,'LMMIS 2017','/survey-report/category/366-lmmis-2017');
+dtree_6456cc8516c3f.add(20,14,'Retail Price of Goods and Survice','/survey-report/category/20-retail-price-of-goods-and-survice');
+dtree_6456cc8516c3f.add(225,20,'RPGS 1996','/survey-report/category/225-rpgs-1996');
+dtree_6456cc8516c3f.add(226,20,'RPGS 1997','/survey-report/category/226-rpgs-1997');
+dtree_6456cc8516c3f.add(228,20,'RPGS 1998','/survey-report/category/228-rpgs-1998');
+dtree_6456cc8516c3f.add(229,20,'RPGS 1999','/survey-report/category/229-rpgs-1999');
+dtree_6456cc8516c3f.add(230,20,'RPGS 2000','/survey-report/category/230-rpgs-2000');
+dtree_6456cc8516c3f.add(232,20,'RPGS 2001','/survey-report/category/232-rpgs-2001');
+dtree_6456cc8516c3f.add(233,20,'RPGS 2002','/survey-report/category/233-rpgs-2002');
+dtree_6456cc8516c3f.add(235,20,'RPGS 2003','/survey-report/category/235-rpgs-2003');
+dtree_6456cc8516c3f.add(242,20,'RPGS 2004','/survey-report/category/242-rpgs-2004');
+dtree_6456cc8516c3f.add(244,20,'RPGS 2005','/survey-report/category/244-rpgs-2005');
+dtree_6456cc8516c3f.add(246,20,'RPGS 2006','/survey-report/category/246-rpgs-2006');
+dtree_6456cc8516c3f.add(248,20,'RPGS 2007','/survey-report/category/248-rpgs-2007');
+dtree_6456cc8516c3f.add(249,20,'RPGS 2008','/survey-report/category/249-rpgs-2008');
+dtree_6456cc8516c3f.add(251,20,'RPGS 2009','/survey-report/category/251-rpgs-2009');
+dtree_6456cc8516c3f.add(252,20,'RPGS 2010','/survey-report/category/252-rpgs-2010');
+dtree_6456cc8516c3f.add(253,20,'RPGS 2011','/survey-report/category/253-rpgs-2011');
+dtree_6456cc8516c3f.add(254,20,'RPGS 2012','/survey-report/category/254-rpgs-2012');
+dtree_6456cc8516c3f.add(255,20,'RPGS 2013','/survey-report/category/255-rpgs-2013');
+dtree_6456cc8516c3f.add(256,20,'RPGS 2014','/survey-report/category/256-rpgs-2014');
+dtree_6456cc8516c3f.add(257,20,'RPGS 2015','/survey-report/category/257-rpgs-2015');
+dtree_6456cc8516c3f.add(21,14,'Small Scale Manufacturing Industry Survey','/survey-report/category/21-small-scale-manufacturing-industry-survey');
+dtree_6456cc8516c3f.add(264,21,'SSIS 2002','/survey-report/category/264-ssis-2002');
+dtree_6456cc8516c3f.add(266,21,'SSIS 2006','/survey-report/category/266-ssis-2006');
+dtree_6456cc8516c3f.add(267,21,'SSIS 2008','/survey-report/category/267-ssis-2008');
+dtree_6456cc8516c3f.add(268,21,'SSIS 2010','/survey-report/category/268-ssis-2010');
+dtree_6456cc8516c3f.add(269,21,'SSIS 2014','/survey-report/category/269-ssis-2014');
+dtree_6456cc8516c3f.add(363,21,'SSIS 2016','/survey-report/category/363-ssis-2016');
+dtree_6456cc8516c3f.add(364,21,'SSIS 2017','/survey-report/category/364-ssis-2017');
+dtree_6456cc8516c3f.add(22,14,'Urban Employment Unemployment Survey','/survey-report/category/22-urban-employment-unemployment-survey');
+dtree_6456cc8516c3f.add(80,22,'ueues 2003','/survey-report/category/80-ueues-2003');
+dtree_6456cc8516c3f.add(82,22,'ueues 2004','/survey-report/category/82-ueues-2004');
+dtree_6456cc8516c3f.add(83,22,'ueues 2005','/survey-report/category/83-ueues-2005');
+dtree_6456cc8516c3f.add(86,22,'ueues 2006','/survey-report/category/86-ueues-2006');
+dtree_6456cc8516c3f.add(87,22,'ueues 2007','/survey-report/category/87-ueues-2007');
+dtree_6456cc8516c3f.add(89,22,'ueues 2008','/survey-report/category/89-ueues-2008');
+dtree_6456cc8516c3f.add(90,22,'ueues 2009','/survey-report/category/90-ueues-2009');
+dtree_6456cc8516c3f.add(91,22,'ueues 2010','/survey-report/category/91-ueues-2010');
+dtree_6456cc8516c3f.add(92,22,'ueues 2011','/survey-report/category/92-ueues-2011');
+dtree_6456cc8516c3f.add(93,22,'ueues 2012','/survey-report/category/93-ueues-2012');
+dtree_6456cc8516c3f.add(94,22,'ueues 2013','/survey-report/category/94-ueues-2013');
+dtree_6456cc8516c3f.add(95,22,'ueues 2014','/survey-report/category/95-ueues-2014');
+dtree_6456cc8516c3f.add(98,22,'ueues 2015','/survey-report/category/98-ueues-2015');
+dtree_6456cc8516c3f.add(361,22,'ueues 2016','/survey-report/category/361-ueues-2016');
+dtree_6456cc8516c3f.add(362,22,'ueues 2018','/survey-report/category/362-ueues-2018');
+dtree_6456cc8516c3f.add(23,14,'Welfare Monitoring Survey','/survey-report/category/23-welfare-monitoring-survey');
+dtree_6456cc8516c3f.add(62,23,'WMS 1996 ','/survey-report/category/62-wms-1996');
+dtree_6456cc8516c3f.add(63,23,'WMS 1998','/survey-report/category/63-wms-1998');
+dtree_6456cc8516c3f.add(64,23,'WMS 2000','/survey-report/category/64-wms-2000');
+dtree_6456cc8516c3f.add(65,23,'WMS 2004','/survey-report/category/65-wms-2004');
+dtree_6456cc8516c3f.add(66,23,'WMS 2011','/survey-report/category/66-wms-2011');
+dtree_6456cc8516c3f.add(356,23,'WMS 2016','/survey-report/category/356-wms-2016');
+dtree_6456cc8516c3f.add(25,14,'Agriculture-Large and Medium Commercial Farm Survey','/survey-report/category/25-agss-large-and-medium-commercial-farm-survey');
+dtree_6456cc8516c3f.add(333,25,'Agr-Large and Medium Commercial Farm Survey 2003','/survey-report/category/333-agr-large-and-medium-commercial-farm-survey-2003');
+dtree_6456cc8516c3f.add(334,25,'Agriculture-Large and Medium Commercial Farm Survey 2011','/survey-report/category/334-agriculture-large-and-medium-commercial-farm-survey-2011');
+dtree_6456cc8516c3f.add(335,25,'Agriculture-Large and Medium Commercial Farm Survey 2012','/survey-report/category/335-agriculture-large-and-medium-commercial-farm-survey-2012');
+dtree_6456cc8516c3f.add(336,25,'Agriculture-Large and Medium Commercial Farm Survey 2013','/survey-report/category/336-agriculture-large-and-medium-commercial-farm-survey-2013');
+dtree_6456cc8516c3f.add(337,25,'Agriculture-Large and Medium Commercial Farm Survey 2014','/survey-report/category/337-agriculture-large-and-medium-commercial-farm-survey-2014');
+dtree_6456cc8516c3f.add(338,25,'Agriculture-Large and Medium Commercial Farm Survey 2015','/survey-report/category/338-agriculture-large-and-medium-commercial-farm-survey-2015');
+dtree_6456cc8516c3f.add(26,14,'Agricultural Sample survey','/survey-report/category/26-agricultural-sample-survey');
+dtree_6456cc8516c3f.add(27,14,'Consumer Price Index','/price-indices/consumer-price-index');
+dtree_6456cc8516c3f.add(342,27,'CPI 2006','/survey-report/category/342-cpi-2006');
+dtree_6456cc8516c3f.add(344,27,'CPI 2007','/survey-report/category/344-cpi-2007');
+dtree_6456cc8516c3f.add(343,27,'CPI 2008','/survey-report/category/343-cpi-2008');
+dtree_6456cc8516c3f.add(345,27,'CPI 2009','/survey-report/category/345-cpi-2009');
+dtree_6456cc8516c3f.add(78,27,'CPI 2010','/survey-report/category/78-cpi-2010');
+dtree_6456cc8516c3f.add(79,27,'CPI 2011','/survey-report/category/79-cpi-2011');
+dtree_6456cc8516c3f.add(81,27,'CPI 2012','/survey-report/category/81-cpi-2012');
+dtree_6456cc8516c3f.add(84,27,'CPI 2013','/survey-report/category/84-cpi-2013');
+dtree_6456cc8516c3f.add(85,27,'CPI 2014','/survey-report/category/85-cpi-2014');
+dtree_6456cc8516c3f.add(88,27,'CPI 2015','/survey-report/category/88-cpi-2015');
+dtree_6456cc8516c3f.add(109,27,'CPI-2016','/survey-report/category/109-cpi-2016');
+dtree_6456cc8516c3f.add(341,27,'CPI-2017','/survey-report/category/341-cpi-2017');
+dtree_6456cc8516c3f.add(349,27,'CPI-2018','/survey-report/category/349-cpi-2018');
+dtree_6456cc8516c3f.add(369,27,'CPI-2019','/survey-report/category/369-cpi-2019');
+dtree_6456cc8516c3f.add(28,14,'Ag-Producer Price Index','/price-indices/ag-producer-price-index');
+dtree_6456cc8516c3f.add(96,28,'Ag-PPI 2010 ','/survey-report/category/96-ag-ppi-2010');
+dtree_6456cc8516c3f.add(97,28,'Ag-PPI 2011','/survey-report/category/97-ag-ppi-2011');
+dtree_6456cc8516c3f.add(99,28,'Ag-PPI 2013','/survey-report/category/99-ag-ppi-2013');
+dtree_6456cc8516c3f.add(100,28,'Ag-PPI 2014','/survey-report/category/100-ag-ppi-2014');
+dtree_6456cc8516c3f.add(101,28,'Ag-PPI 2015','/survey-report/category/101-ag-ppi-2015');
+dtree_6456cc8516c3f.add(102,28,'Ag-PPI 2012','/survey-report/category/102-ag-ppi-2012');
+dtree_6456cc8516c3f.add(189,28,'AG-PPI 2016','/survey-report/category/189-ag-ppi-2016');
+dtree_6456cc8516c3f.add(326,14,'Industry Quarterly Report','/survey-report/category/326-industry-quarterly-report');
+dtree_6456cc8516c3f.add(29,326,'PPI-FOR-MANUFACTURING','/survey-report/category/29-ppi-for-manufacturing');
+dtree_6456cc8516c3f.add(204,29,'PPI-2005 Quarterly','/survey-report/category/204-ppi-2005-quarterly');
+dtree_6456cc8516c3f.add(207,29,'PPI-2007 Quarterly','/survey-report/category/207-ppi-2008-quarterly');
+dtree_6456cc8516c3f.add(208,29,'PPI-2008 Quarterly','/survey-report/category/208-ppi-2005-quarterly');
+dtree_6456cc8516c3f.add(209,29,'PPI-2010 Quarterly','/survey-report/category/209-ppi-2010-quarterly');
+dtree_6456cc8516c3f.add(210,29,'PPI-2011 Quarterly','/survey-report/category/210-ppi-2011-quarterly');
+dtree_6456cc8516c3f.add(211,29,'PPI-2012 Quarterly','/survey-report/category/211-ppi-2012-quarterly');
+dtree_6456cc8516c3f.add(212,29,'PPI-2013 Quarterly','/survey-report/category/212-ppi-2013-quarterly');
+dtree_6456cc8516c3f.add(214,29,'PPI-2009 Quarterly','/survey-report/category/214-ppi-2009-quarterly');
+dtree_6456cc8516c3f.add(30,326,'Quarterly Manufacturing Industry Business Survey','/survey-report/category/30-quarterly-manufacturing-industry-business-survey');
+dtree_6456cc8516c3f.add(213,30,'Qureterly Manufacturing Industry 1999','/survey-report/category/213-qureterly-manufacturing-industry-1999');
+dtree_6456cc8516c3f.add(215,30,'Qureterly Manufacturing Industry 2000','/survey-report/category/215-qureterly-manufacturing-industry-2000');
+dtree_6456cc8516c3f.add(216,30,'Qureterly Manufacturing Industry 2001','/survey-report/category/216-qureterly-manufacturing-industry-2001');
+dtree_6456cc8516c3f.add(217,30,'Qureterly Manufacturing Industry 2002','/survey-report/category/217-qureterly-manufacturing-industry-2002');
+dtree_6456cc8516c3f.add(218,30,'Qureterly Manufacturing Industry 2003','/survey-report/category/218-qureterly-manufacturing-industry-2003');
+dtree_6456cc8516c3f.add(219,30,'Qureterly Manufacturing Industry 2004','/survey-report/category/219-qureterly-manufacturing-industry-2004');
+dtree_6456cc8516c3f.add(220,30,'Qureterly Manufacturing Industry 2005','/survey-report/category/220-qureterly-manufacturing-industry-2005');
+dtree_6456cc8516c3f.add(221,30,'Qureterly Manufacturing Industry 2006','/survey-report/category/221-qureterly-manufacturing-industry-2006');
+dtree_6456cc8516c3f.add(222,30,'Qureterly Manufacturing Industry 2007','/survey-report/category/222-qureterly-manufacturing-industry-2007');
+dtree_6456cc8516c3f.add(223,30,'Qureterly Manufacturing Industry 2008','/survey-report/category/223-qureterly-manufacturing-industry-2008');
+dtree_6456cc8516c3f.add(224,30,'Qureterly Manufacturing Industry 2009','/survey-report/category/224-qureterly-manufacturing-industry-2009');
+dtree_6456cc8516c3f.add(227,30,'Qureterly Manufacturing Industry 2010','/survey-report/category/227-qureterly-manufacturing-industry-2010');
+dtree_6456cc8516c3f.add(231,30,'Qureterly Manufacturing Industry 2011','/survey-report/category/231-qureterly-manufacturing-industry-2011');
+dtree_6456cc8516c3f.add(236,30,'Qureterly Manufacturing Industry 2012','/survey-report/category/236-qureterly-manufacturing-industry-2012');
+dtree_6456cc8516c3f.add(31,326,'EXTERNAL-MERCHANDISE-TRADE','/survey-report/category/31-external-merchandise-trade');
+dtree_6456cc8516c3f.add(258,31,'External merchadise trade Quareterly 2010','/survey-report/category/258-external-merchadise-trade-quareterly-2010');
+dtree_6456cc8516c3f.add(259,31,'External merchadise trade Quareterly 2011','/survey-report/category/259-external-merchadise-trade-quareterly-2011');
+dtree_6456cc8516c3f.add(260,31,'External merchadise trade Quareterly 2012','/survey-report/category/260-external-merchadise-trade-quareterly-2012');
+dtree_6456cc8516c3f.add(261,31,'External merchadise trade Quareterly 2013','/survey-report/category/261-external-merchadise-trade-quareterly-2013');
+dtree_6456cc8516c3f.add(262,31,'External merchadise trade Quareterly 2014','/survey-report/category/262-external-merchadise-trade-quareterly-2014');
+dtree_6456cc8516c3f.add(263,31,'External merchadise trade Quareterly 2015','/survey-report/category/263-external-merchadise-trade-quareterly-2015');
+dtree_6456cc8516c3f.add(265,31,'External merchadise trade Quareterly 2016','/survey-report/category/265-external-merchadise-trade-quareterly-2016');
+dtree_6456cc8516c3f.add(339,14,'child labour survey','/survey-report/category/339-child-labour-survey');
+dtree_6456cc8516c3f.add(340,339,'child labour survey 2001','/survey-report/category/340-child-labour-survey-2001');
+dtree_6456cc8516c3f.add(353,339,'child labour survey 2015','/survey-report/category/353-child-labour-survey-2015');
+dtree_6456cc8516c3f.add(360,14,'SFR Activities','/statistics-for-results-sfr/sfr-activities');
+dtree_6456cc8516c3f.add(372,14,'Statistical Coordination','/sttistical-coordination');
+dtree_6456cc8516c3f.add(323,0,'other documents','/survey-report/category/323-other-documents');
+dtree_6456cc8516c3f.add(103,323,'Census Report','/survey-report/category/103-census-report');
+dtree_6456cc8516c3f.add(104,103,'Census-2007 Report','/census-report/complete-report/census-2007');
+dtree_6456cc8516c3f.add(105,103,'Census-1994 Report','/census-report/complete-report/census-1994');
+dtree_6456cc8516c3f.add(327,103,'census 1984','/census-report/complete-report/census-1984');
+dtree_6456cc8516c3f.add(270,323,'National-Statistics-Abstract','/national-statistics-abstract-2003-15');
+dtree_6456cc8516c3f.add(275,270,'National-Statistics-Abstract-2003','/survey-report/category/275-national-statistics-abstract-2003');
+dtree_6456cc8516c3f.add(288,270,'National-Statistics-Abstract-2004','/survey-report/category/288-national-statistics-abstract-2004');
+dtree_6456cc8516c3f.add(289,270,'National-Statistics-Abstract-2005','/survey-report/category/289-national-statistics-abstract-2005');
+dtree_6456cc8516c3f.add(290,270,'National-Statistics-Abstract-2006','/survey-report/category/290-national-statistics-abstract-2006');
+dtree_6456cc8516c3f.add(291,270,'National-Statistics-Abstract-2007','/survey-report/category/291-national-statistics-abstract-2007');
+dtree_6456cc8516c3f.add(292,270,'National-Statistics-Abstract-2008','/survey-report/category/292-national-statistics-abstract-2008');
+dtree_6456cc8516c3f.add(293,270,'National-Statistics-Abstract-2009','/survey-report/category/293-national-statistics-abstract-2009');
+dtree_6456cc8516c3f.add(294,270,'National-Statistics-Abstract-2010','/survey-report/category/294-national-statistics-abstract-2010');
+dtree_6456cc8516c3f.add(295,270,'National-Statistics-Abstract-2011','/survey-report/category/295-national-statistics-abstract-2011');
+dtree_6456cc8516c3f.add(296,270,'National-Statistics-Abstract-2012','/survey-report/category/296-national-statistics-abstract-2012');
+dtree_6456cc8516c3f.add(303,323,'Census Table','/census-report/census-tables');
+dtree_6456cc8516c3f.add(301,303,'Census Tables','/survey-report/category/301-census-tables');
+dtree_6456cc8516c3f.add(304,323,'activities','/survey-report/category/304-activities');
+dtree_6456cc8516c3f.add(305,304,'naming and coding','/list-activities/naming-and-coding');
+dtree_6456cc8516c3f.add(306,304,'Statistical Concepts and Definitions','/list-activities/statistical-concepts-and-definitions');
+dtree_6456cc8516c3f.add(307,304,'International Standard Industrial Classification of All Economic Activities Revision 4','/list-activities/international-standard-industrial-classification-of-all-economic-activities-revision-4');
+dtree_6456cc8516c3f.add(308,304,'International Standard Classification of Occupations (ISCO-08)','/list-activities/international-standard-classification-of-occupations-isco-08');
+dtree_6456cc8516c3f.add(309,323,'National Statistical Development Strategy','/survey-report/category/309-nsds');
+dtree_6456cc8516c3f.add(310,323,'Ethiopian Data Quality Assessemnt Framwork','/survey-report/category/310-edqaf');
+dtree_6456cc8516c3f.add(312,323,'ATLAS','/atlas');
+dtree_6456cc8516c3f.add(314,312,'Indicators','/survey-report/category/314-indicators');
+dtree_6456cc8516c3f.add(315,312,'Ethiopia\'s Rural Facilities and Services (ERFAS-2011)','/survey-report/category/315-erfas-2011');
+dtree_6456cc8516c3f.add(322,323,'Statistics For Results(SFR)','/statistics-for-results-sfr/sfr-audit-report');
+dtree_6456cc8516c3f.add(324,323,'Recent Survey','/ehioinfo-internal');
+dtree_6456cc8516c3f.add(325,323,'Proclamatioin Of CSA','/ehioinfo-external');
+dtree_6456cc8516c3f.add(367,0,'Population Projection','/census-report/population-projections');
+dtree_6456cc8516c3f.add(368,367,'Population Projection 2007-2037','/survey-report/category/368-population-projection-2007-2037');
+dtree_6456cc8516c3f.add(371,0,'Census Questionnaires 2011/2019','/census-2011-questionnaire-in-local-languages');
+
+document.write(dtree_6456cc8516c3f);
+dtree_6456cc8516c3f.openTo(340,'true');
+
+//-->
+</script></div></div></center>
+</div>
+<div style="clear:both"></div>
+
+<div class="clearbreak"></div></div></div></div><div class=" jsn-modulecontainer"><div class="jsn-modulecontainer_inner"><div class="jsn-modulecontent">
+<div class="jsn-mod-custom">
+	<p>&nbsp;<a href="/component/phocadownload/category/310?Itemid=310" target="_self"><img src="/images/edqaf.png" alt="" /></a></p></div><div class="clearbreak"></div></div></div></div>
+							</div>
+						</div>
+					</div>
+							<div id="jsn-rightsidecontent" class="span3 order3 ">
+						<div id="jsn-rightsidecontent_inner">
+							<div id="jsn-pos-right">
+								<div class=" jsn-modulecontainer"><div class="jsn-modulecontainer_inner"><div class="jsn-modulecontent"><div id="tContainer95" class="tContainer scrollshow" style="width: 100%; height: 200px;"><ul style="list-style-type: square;">
+<li>Inflation Rate for the Month of April 2019 is <span style="background-color: #ff0000;"></span><span style="color: red;">12.9%</span></li>
+<li><span style="color: red;"></span>National Poverty head count indices&nbsp; in 2010/2011<span style="color: red;">&nbsp;29.6%</span></li>
+<li><span style="color: red;"></span>Rural Poverty head count indices&nbsp; in 2010/2011<span style="color: red;">&nbsp;30.4%</span></li>
+<li><span style="color: red;"></span>Urban Poverty head count indices&nbsp; in 2010/2011<span style="color: red;">&nbsp;25.7%</span></li>
+<li><span style="color: red;"></span>National Poverty head count indices&nbsp; in 2015/2016<span style="color: red;">&nbsp;23.5%</span></li>
+<li><span style="color: red;"></span>Rural Poverty head count indices&nbsp; in 2015/2016<span style="color: red;">&nbsp;25.6%</span></li>
+<li><span style="color: red;"></span>Urban Poverty head count indices&nbsp; in 2015/2016<span style="color: red;">&nbsp;14.8%</span></li>
+<li>National income inequality using GINI Coefficient in 2010/11 is&nbsp;<span style="color: #ff0000;">0.298</span></li>
+<li>Rural income inequality using GINI Coefficient in 2010/11 is&nbsp;<span style="color: #ff0000;">0.27</span></li>
+<li>Urban income inequality using GINI Coefficient in 2010/11 is&nbsp;<span style="color: #ff0000;">0.37</span></li>
+<li>National income inequality using GINI Coefficient in 2015/16 is&nbsp;<span style="color: #ff0000;">0.328</span></li>
+<li>Rural income inequality using GINI Coefficient in 2015/16 is&nbsp;<span style="color: #ff0000;">0.28</span></li>
+<li>Urban income inequality using GINI Coefficient in 2015/16 is&nbsp;<span style="color: #ff0000;">0.38</span></li>
+<li>GDP per Capital (in US Dollar) in 1999/00 is&nbsp;<span style="color: red;">129</span></li>
+<li><span style="color: red;"></span>GDP per Capital (in US Dollar) in 2007/08 is&nbsp;<span style="color: red;">262</span></li>
+<li><span style="color: red;"></span>GDP per Capital (in US Dollar) in 2015/16 is&nbsp;<span style="color: red;">794</span></li>
+<li><span style="text-decoration: underline;"><strong><span style="color: #000000;">Source:-&nbsp;</span></strong></span><span style="color: #000000;"> Ethiopia's Progress Towards Eradicating Poverty: An&nbsp; Interim Report on 2015/16</span></li>
+<li><span style="color: #000000;"></span>Poverty Analysis Study, National Planning Commission, September 2017</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p></div><div class="clearbreak"></div></div></div></div><div class=" jsn-modulecontainer"><div class="jsn-modulecontainer_inner"><div class="jsn-modulecontent">
+<div class="jsn-mod-custom">
+	<p><a href="/national-statistics-abstract-2003-15" target="_self"><img src="/images/stat22.jpg" alt="" /></a></p>
+<p><a href="/component/phocadownload/category/309?Itemid=309" target="_self"><img src="/images/nsds5.png" alt="" /></a></p></div><div class="clearbreak"></div></div></div></div>
+							</div>
+						</div>
+					</div>
+						</div>
+			</div>
+				</div>
+			</div>
+	<div id="jsn-brand">
+		 Copyright © Central Statistical Agency - Ethiopia, 2010 / 2018
+
+</div>
+
+</body>
+</html>
